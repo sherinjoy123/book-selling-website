@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style3.css">
+</head>
+<body>
+    <header id="nav-bar">
+        <nav class="navbar navbar-expand-lg bg-info">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="data:image/jpeg;base64,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" width="40px" height="40px" class="rounded-circle  "> Bookly</a>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " href="#home">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#gallery">GALLERY</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">ABOUT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">CONTACT</a>
+                  </li>
+                  </li>
+                  
+                </ul>
+            
+                <i class=" icon fa-solid fa-location-dot m-3 p-2 "></i>
+                <i class= " icon fa-solid fa-user m-3 p-2"></i>
+                <i class=" icon fa-solid fa-cart-shopping m-3 p-2"></i>
+
+            
+              </div>
+            </div>
+          </nav>
+    </header>
+    <div class="row bg-success">
+        <div class="col-12">
+            <form >
+                <input class="bor form-control" type="text" placeholder="Enter Title Author Or ISBN">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+        </div>
+
+    </div>
+
+    <section>
+        <div class="row">
+            <div class="col">
+
+              <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./harry.JPG" class="d-block " width="1440px" height="700px" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./pf-71b40b91--Books_1200x.jpg.webp" class="d-block"width="1440px" height="700px"  alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./secret-library-book-cover-2.jpg.webp" class="d-block"width="1440px" height="700px" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+
+            </div>
+        </div>
+          
+          </div>
+          
+        </div>
+
+    </section>
+    <section>
+      <div class="row">
+      <div class="col-12">
+        <img src="./cover.JPG" width="700px " height="400px" class="img"
+        alt="">
+        <img src="./coverpg.JPG" width="700px " height="400px" class="img" alt="">
+      </div>
+     
+      </div>
+      </div>
+    </section>
+    <section  id="home">
+      <div class="row p-3 m-3">
+        <h1 class="text-center">Choose Your Favourite</h1>
+        <div class="col-3 shadow">
+          <div class="card" style="width: 18rem; height: 330px;">
+            <img src="./57ee5c3a7c9988201038142a_418243985.jpg" class="card-img-top" height="200px">
+            <div class="card-body">
+              <h5 class="card-title text-center">HARRY POTTER</h5>
+              <p class="card-text text-center">price:$500</p>
+              <a href="#" class="btn btn-primary m-6">Buy Now</a>
+            </div>
+          </div>
+      
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem; height: 330px;">
+            <img src="./bokstore3.jpg" class="card-img-top" height="200px">
+            <div class="card-body">
+              <h5 class="card-title text-center">ROGGER</h5>
+              <p class="card-text text-center">price:$300</p>
+              <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem; height: 330px;">
+            <img src="./9M-atomic-habits-dots.png" class="card-img-top" height="200px">
+            <div class="card-body">
+              <h5 class="card-title text-center">ATOMIC HABITS</h5>
+              <p class="card-text text-center">price:$500</p>
+              <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem; height: 330px;">
+            <img src="./51FK50Dpg6L._AC_UF1000,1000_QL80_.jpg" class="card-img-top" height="200px">
+            <div class="card-body">
+              <h5 class="card-title text-center">LOST SYMBOL</h5>
+              <p class="card-text text-center">price:$500</p>
+              <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </section id="home">
+      <section>
+        <div class="row p-3 m-3 rounded-circle">
+          <div class="col-3">
+            <div class="card" style="width: 18rem; height: 330px;">
+              <img src="./take-my-hand-best-books-2022-0522-2000-5deb0034991241e3b5e2a39dd394af39.jpg" class="card-img-top" height="200px">
+              <div class="card-body">
+                <h5 class="card-title text-center">TALK MY HAND</h5>
+                <p class="card-text text-center">price:$500</p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+        
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem; height: 330px;">
+              <img src="./AnnaKarenina(1877).jpg.webp" class="card-img-top" height="200px">
+              <div class="card-body">
+                <h5 class="card-title text-center">ANNA KARININA</h5>
+                <p class="card-text text-center">price:$500</p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem; height: 330px;">
+              <img src="./bookstore2.jpg" class="card-img-top" height="200px">
+              <div class="card-body">
+                <h5 class="card-title text-center">THE GIRL IN THE LETTER</h5>
+                <p class="card-text text-center">price:$500</p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem; height: 330px;">
+              <img src="./P0.jpg" class="card-img-top" height="200px">
+              <div class="card-body">
+                <h5 class="card-title text-center">IT START WITH US</h5>
+                <p class="card-text text-center">price:$500</p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </section>
+        <hr>
+
+      <section id="gallery">
+        <h1 class="text-center">Fiction Books</h1><hr>
+        <div class="row">
+          <div class="col-2">
+            <img src="./Henrys-Freedom-Box.jpg" width="200px" height="300px"  class="m-2">
+            <h4  class="bolld">Henrys Freedom Box</h4>
+            <h5 > Auther:Ellen</h5>
+            <h5 > Price:$200</h5>
+          </div>
+          <div class="col-2">
+            <img src="./fiction.jpeg" width="200px" height="300px"  class="m-2">
+            <h4 >Francie</h4>
+            <h5 > Auther:Karen</h5>
+            <h5 > Price:$100</h5>
+          </div>
+          <div class="col-2">
+            <img src="./fictin 2.jpeg" width="200px" height="300px"  class="m-2">
+            <h4 >A girl on a plan A</h4>
+            <h5 > Auther:Miriam Moss</h5>
+            <h5 > Price:$200</h5>
+          </div>
+          <div class="col-2">
+            <img src="./fiction 3.jpeg" width="200px" height="300px"  class="m-2">
+            <h4 >Plan A</h4>
+            <h5 > Auther:Deb Calletie</h5>
+            <h5 > Price:$300</h5>
+          </div>
+          <div class="col-2">
+            <img src="./fiction4.jpeg" width="200px" height="300px"  class="m-2">
+            <h4 >Ramona The Brave</h4>
+            <h5 > Auther:Beverly</h5>
+            <h5 > Price:$100</h5>
+          </div>
+          <div class="col-2">
+            <img src="./fiction 5.jpeg" width="200px" height="300px"  class="m-2">
+            <h4 >Ramona Collection</h4>
+            <h5 > Auther:Beverly</h5>
+            <h5 > Price:$120</h5>
+          </div>
+        </div>
+        
+        </section>
+        <hr>
+        
+        <section>
+          <h1 class="text-center"> Non Fiction Books</h1><hr>
+          <div class="row">
+            <div class="col-2">
+              <img src="./n fiction.jpeg" width="200px" height="300px"  class="m-2">
+              <h4  class="bolld">Self Published And Succed</h4>
+              <h5 > Auther:Ellen</h5>
+              <h5 > Price:$200</h5>
+            </div>
+            <div class="col-2">
+              <img src="./becoming.jpeg" width="200px" height="300px"  class="m-2">
+              <h4 >Francie</h4>
+              <h5 > Auther:Karen</h5>
+              <h5 > Price:$100</h5>
+            </div>
+            <div class="col-2">
+              <img src="./diary.jpeg" width="200px" height="300px"  class="m-2">
+              <h4 >Becoming</h4>
+              <h5 > Auther:Machila Obama</h5>
+              <h5 > Price:$200</h5>
+            </div>
+            <div class="col-2">
+              <img src="./guns .jpeg" width="200px" height="300px"  class="m-2">
+              <h4 >The Guns Of August</h4>
+              <h5 > Auther:Barbara W. Tuchman</h5>
+              <h5 > Price:$300</h5>
+            </div>
+            <div class="col-2">
+              <img src="./guns.jpeg" width="200px" height="300px"  class="m-2">
+              <h4 >The Guns Germs And Steel</h4>
+              <h5 > Auther:Jared Diamond</h5>
+              <h5 > Price:$100</h5>
+            </div>
+            <div class="col-2">
+              <img src="./brothers.jpeg" width="200px" height="300px"  class="m-2">
+              <h4 > The write Brothers</h4>
+              <h5 > Auther:David McCullough</h5>
+              <h5 > Price:$120</h5>
+            </div>
+          </div>
+          
+          </section>
+          <hr>
+
+          <section >
+            <h1 class="text-center"> Mystery Collections</h1><hr>
+
+            <div class="row">
+              <div class="col-2">
+                <img src="./mystery.jpeg" width="200px" height="300px"  class="m-2">
+                <h4  class="bolld">The Hound of the Baskervilles</h4>
+                <h5 > Auther:Arthur Conan Doyle</h5>
+                <h5 > Price:$200</h5>
+              </div>
+              <div class="col-2">
+                <img src="./mystery2.jpeg" width="200px" height="300px"  class="m-2">
+                <h4 >The Maltese Falcon</h4>
+                <h5 > Auther:Dashiell Hammett</h5>
+                <h5 > Price:$100</h5>
+              </div>
+              <div class="col-2">
+                <img src="./mystery3.jpeg" width="200px" height="300px"  class="m-2">
+                <h4 >Murder on the Orient Express</h4>
+                <h5 > Auther:Agatha Christie</h5>
+                <h5 > Price:$200</h5>
+              </div>
+              <div class="col-2">
+                <img src="./mystery4.jpeg" width="200px" height="300px"  class="m-2">
+                <h4 >Gone Girl</h4>
+                <h5 > Auther: Gillian Flynn</h5>
+                <h5 > Price:$300</h5>
+              </div>
+              <div class="col-2">
+                <img src="./myestry5.jpeg" width="200px" height="300px"  class="m-2">
+                <h4 >The Girl with the Dragon Tattoo</h4>
+                <h5 > Auther:Stieg Larsson</h5>
+                <h5 > Price:$100</h5>
+              </div>
+              <div class="col-2">
+                <img src="./myestry6.jpeg" width="200px" height="300px"  class="m-2">
+                <h4 >Big Little Lies </h4>
+                <h5 > Auther:Liane Moriarty</h5>
+                <h5 > Price:$120</h5>
+              </div>
+            </div>
+            
+            </section>
+            <hr>
+
+
+            <section >
+              <h1 class="text-center">Science Fiction</h1><hr>
+  
+              <div class="row">
+                <div class="col-2">
+                  <img src="./science.jpeg" width="200px" height="300px"  class="m-2">
+                  <h4  class="bolld">Brave New World</h4>
+                  <h5 > Auther:Aldous Huxley</h5>
+                  <h5 > Price:$200</h5>
+                </div>
+                <div class="col-2">
+                  <img src="./science2.jpeg" width="200px" height="300px"  class="m-2">
+                  <h4 >Brave New World</h4>
+                  <h5 > Auther:Ray Bradbury</h5>
+                  <h5 > Price:$100</h5>
+                </div>
+                <div class="col-2">
+                  <img src="./science3.jpeg" width="200px" height="300px"  class="m-2">
+                  <h4 >Fahrenheit 451</h4>
+                  <h5 > Auther:Ray Bradbury</h5>
+                  <h5 > Price:$200</h5>
+                </div>
+                <div class="col-2">
+                  <img src="./science4.jpeg" width="200px" height="300px"  class="m-2">
+                  <h4 >The War of the Worlds</h4>
+                  <h5 > Auther:H.G. Wells </h5>
+                  <h5 > Price:$300</h5>
+                </div>
+                <div class="col-2">
+                  <img src="./scienc5.jpeg" width="200px" height="300px"  class="m-2">
+                  <h4 >Dune</h4>
+                  <h5 > Auther:Frank Herbert</h5>
+                  <h5 > Price:$100</h5>
+                </div>
+                <div class="col-2">
+                  <img src="./scien6.png" width="200px" height="300px"  class="m-2">
+                  <h4 >Neuromancer </h4>
+                  <h5 > Auther:William Gibson</h5>
+                  <h5 > Price:$120</h5>
+                </div>
+              </div>
+              
+              </section>
+              <hr>
+          
+
+              <section >
+                <h1 class="text-center">Biographies</h1><hr>
+    
+                <div class="row">
+                  <div class="col-2">
+                    <img src="./auto.jpeg" width="200px" height="300px"  class="m-2">
+                    <h4  class="bolld">The Autobiography of Malcolm X</h4>
+                    <h5 > Auther:Malcolm X</h5>
+                    <h5 > Price:$200</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="./auto1.jpeg" width="200px" height="300px"  class="m-2">
+                    <h4 >Long Walk to Freedom</h4>
+                    <h5 > Auther: Nelson Mandela</h5>
+                    <h5 > Price:$100</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="./auto3.jpeg" width="200px" height="300px"  class="m-2">
+                    <h4 >Dreams from My Father</h4>
+                    <h5 > Auther: Barack Obama</h5>
+                    <h5 > Price:$200</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="./auto5.jpeg" width="200px" height="300px"  class="m-2">
+                    <h4 >The Story of My Experiments with Truth</h4>
+                    <h5 > Auther: Mahatma Gandhi</h5>
+                    <h5 > Price:$300</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="./2_58bd16d8-f6a3-4fd8-97ac-77117891adcc.jpg.webp" width="200px" height="300px"  class="m-2">
+                    <h4 >I Know Why the Caged Bird Sings</h4>
+                    <h5 > Auther:Maya Angelou</h5>
+                    <h5 > Price:$100</h5>
+                  </div>
+                  <div class="col-2">
+                    <img src="./auto6.jpeg" width="200px" height="300px"  class="m-2">
+                    <h4 >A Moveable Feast </h4>
+                    <h5 > Auther:Ernest Hemingway</h5>
+                    <h5 > Price:$120</h5>
+                  </div>
+                </div>
+                
+                </section>
+                <hr>
+      
+
+                <section id="about">
+                  <div class="row">
+                    <h1 class="text-center">About </h1><hr>
+                
+                    <div class="col-6">
+                      
+                      <img src="./bookstore in.jpeg" width ="800px" height="600px" class="imgsr">
+
+                    </div>
+                    <div class="col-6">
+
+                      <p class="para">The Strand Bookstore, located in New York City, was founded in 1927 by Benjamin Bass. It originally occupied a small space on Fourth Avenue's famous "Book Row," a stretch of six city blocks that housed over 40 bookstores. The Strand outlasted its neighbors to become a literary institution, renowned for its extensive collection of new, used, and rare books. Over the decades, the bookstore expanded, moving to its current location on Broadway and 12th Street in 1957. It boasts over 18 miles of bookshelves and remains family-owned, now operated by the third generation of the Bass family. The Strand is celebrated for its eclectic inventory, author events, and its role as a cultural landmark in New York City's vibrant literary scene.</p>
+                      <p class="para">The Strand Bookstore has become synonymous with New York City's literary culture, attracting book lovers from around the world. Its iconic red awning and slogan, "18 Miles of Books," are instantly recognizable, symbolizing the store's vast and diverse collection. The Strand offers everything from bestsellers and academic texts to rare first editions and out-of-print volumes. It also features a bustling Rare Book Room, where bibliophiles can find valuable and unique treasures. Beyond books, the store sells literary-themed merchandise and hosts numerous author readings, signings, and book clubs, fostering a vibrant community of readers and writers. Despite the challenges faced by independent bookstores in the digital age, The Strand continues to thrive, maintaining its status as a beloved and enduring fixture in the city's cultural landscape.
+
+                      </p>
+                    </div>
+                  </div>
+                </section>
+                <hr>
+
+                <section id="contact">
+
+                  <h1 class="text-center">Contact</h1>
+                  <hr>
+                  <div class="row  last">
+                  
+                    
+              
+                    <div class="col-4"></div>
+                    <div class="col-4 for">
+                      
+                        <form class="form-control m-4 border-black ">
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Name</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="exampleInputPassword1">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1">
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Message</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+
+                          </div>
+
+                          <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                     
+                    </div>
+                    <div class="col-4"></div>
+                  </div>
+
+                </section>
+                <section>
+                  <div class="row">
+           
+                    <div class="col-12">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126014.96536498722!2d76.38774069726563!3d9.24718700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b061f2901dd5d7b%3A0x2e3039a5649602b0!2sVidyarambham%20Book%20House!5e0!3m2!1sen!2sin!4v1723747662881!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="p-3"></iframe>
+                     <div class="col1">
+                      <i class="fa-brands fa-facebook"></i>
+                      <i class="fa-brands fa-instagram"></i>
+                      <i class="fa-brands fa-whatsapp"></i>
+                      <i class="fa-brands fa-twitter"></i>
+                      <i class="fa-brands fa-pinterest"></i>
+                    </div>
+
+                      
+                    </div>
+                    
+                  </div>
+                </section>
+                <section>
+                  <div class="row bg-info">
+                    <div class="col-4 ">
+                      <h2 class="p-2 mt-3">Bookly</h2>
+                      
+                      
+                      <h5  class="p-2">
+                        Book store 
+                        123 Bibliophile Lane
+                        Page Town,  
+                        BT 45678
+                        Booklandia
+                        <br>
+                        Email:
+                        info@bookhaven.com</h5>
+
+                    </div>
+                    <div class="col-2">
+                      <h3 class="mt-4">SHOP</h3> 
+                        <h5>Books
+                        eBooks
+                        Kids-A-Million
+                        Teen
+                        Bargain Books
+                        Entertainment
+                        Toys
+                        Fandom
+                      </h5>
+                    </div>
+                    <div class="col-2">
+                     <h3 class="mt-4">SERVICES</h3>
+                     <h5> Millionaire's Club
+                      Affiliate Program
+                      Business Services
+                      Education Services
+                      Gift Cards</h5>
+                    </div>
+                    <div class="col-2">
+                     <h3 class="mt-4"> COMPANY</h3>
+                      <h5>Find a Store
+                      About Us
+                      Career Opportunities
+                      For Authors & Publishers
+                      Contact Us
+                      Read Our Blog
+                      Digital Accessibility</h5>
+                    </div>
+                    <div class="col-2">
+                      <h3 class="mt-4">HELP</h3>
+                      <h5>Help Desk
+                      Manage My Account
+                      Reset My Password
+                      Shopping Cart
+                      Shipping Info
+                      Where's My Order?
+                      Returns</h5>
+                    </div>
+                  </div>
+                </section>
+    
+        
+
+    
+</body>
+</html>
